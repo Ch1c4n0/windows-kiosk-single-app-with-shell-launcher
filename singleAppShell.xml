@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ShellLauncherConfiguration
+xmlns="http://schemas.microsoft.com/ShellLauncher/2018/Configuration" xmlns:V2="http://schemas.microsoft.com/ShellLauncher/2019/Configuration">
+    <Profiles>
+        <DefaultProfile>
+            <Shell Shell="%SystemRoot%\explorer.exe"/>
+        </DefaultProfile>
+        <Profile Id="{735e23ff-a373-4ae7-a387-0caf1609009f}">
+            <Shell Shell="%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge.exe --kiosk https://www.youtube.com/@cloudinfocus --edge-kiosk-type=fullscreen --kiosk-idle-timeout-minutes=2" V2:AppType="Desktop" V2:AllAppsFullScreen="true">
+                <ReturnCodeActions>
+                    <ReturnCodeAction ReturnCode="0" Action="RestartShell"/>
+                    <ReturnCodeAction ReturnCode="-1" Action="RestartDevice"/>
+                    <ReturnCodeAction ReturnCode="255" Action="ShutdownDevice"/>
+                </ReturnCodeActions>
+                <DefaultAction Action="RestartShell"/>
+            </Shell>
+        </Profile>
+    </Profiles>
+    <Configs>
+        <Config>
+            <AutoLogonAccount/>
+            <Profile Id="{735e23ff-a373-4ae7-a387-0caf1609009f}"/>
+        </Config>
+        <!--local account-->
+        <Config>
+            <Account Name="cloudinfocus"/>
+            <Profile Id="{735e23ff-a373-4ae7-a387-0caf1609009f}"/>
+        </Config>
+        <!--Microsoft Entra account-->
+        <Config>
+            <Account Name="azuread\adelev@lab.cloudinfocus.com.br"/>
+            <Profile Id="{735e23ff-a373-4ae7-a387-0caf1609009f}"/>
+        </Config>
+    </Configs>
+</ShellLauncherConfiguration>
